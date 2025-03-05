@@ -1,0 +1,299 @@
+{
+	"info": {
+		"_postman_id": "1f9ced38-3716-49d1-a4f9-ff6973f80e08",
+		"name": "library-management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42238191"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Admin1\",\n  \"email\": \"admin1@example.com\",\n  \"password\": \"password\",\n  \"role\": \"ADMIN\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/auth/login?email=user1@example.com&password=password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "user1@example.com"
+						},
+						{
+							"key": "password",
+							"value": "password"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add-book",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMUBleGFtcGxlLmNvbSIsInJvbGUiOiJTVFVERU5UIiwiaWF0IjoxNzQxMTczNDYzLCJleHAiOjE3NDEyNTk4NjN9.jVGgtzcsb0-FgfZW23J1JaU99H7d8hATgOmM6NsZS0g",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Book-4\",\n  \"author\": \"Robert C. Martin\",\n  \"isbn\": \"9780132350884\",\n  \"copies\": 4\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/books/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"books",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "view-books",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMUBleGFtcGxlLmNvbSIsInJvbGUiOiJTVFVERU5UIiwiaWF0IjoxNzQxMTczNDYzLCJleHAiOjE3NDEyNTk4NjN9.jVGgtzcsb0-FgfZW23J1JaU99H7d8hATgOmM6NsZS0g",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete-book",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjFAZXhhbXBsZS5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NDExNzI0MTQsImV4cCI6MTc0MTI1ODgxNH0.OPCIdn0O-9rJy2mvclPVntgepP2lnWUOrKzSgUYBuiE",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/books/delete/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"books",
+						"delete",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "view-one-book",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMUBleGFtcGxlLmNvbSIsInJvbGUiOiJTVFVERU5UIiwiaWF0IjoxNzQxMTczNDYzLCJleHAiOjE3NDEyNTk4NjN9.jVGgtzcsb0-FgfZW23J1JaU99H7d8hATgOmM6NsZS0g",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/books/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"books",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update-book",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbjFAZXhhbXBsZS5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3NDExNzI0MTQsImV4cCI6MTc0MTI1ODgxNH0.OPCIdn0O-9rJy2mvclPVntgepP2lnWUOrKzSgUYBuiE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\": 2,\n        \"title\": \"Book-2\",\n        \"author\": \"Rubavathy\",\n        \"isbn\": \"9780132350884\",\n        \"copies\": 5\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/books/update/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"books",
+						"update",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "borrow-book",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMUBleGFtcGxlLmNvbSIsInJvbGUiOiJTVFVERU5UIiwiaWF0IjoxNzQxMTczNDYzLCJleHAiOjE3NDEyNTk4NjN9.jVGgtzcsb0-FgfZW23J1JaU99H7d8hATgOmM6NsZS0g",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/borrow/7/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"borrow",
+						"7",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "return-book",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMUBleGFtcGxlLmNvbSIsInJvbGUiOiJTVFVERU5UIiwiaWF0IjoxNzQxMTczNDYzLCJleHAiOjE3NDEyNTk4NjN9.jVGgtzcsb0-FgfZW23J1JaU99H7d8hATgOmM6NsZS0g",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/borrow/return/7/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"borrow",
+						"return",
+						"7",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "borrowed-history",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMUBleGFtcGxlLmNvbSIsInJvbGUiOiJTVFVERU5UIiwiaWF0IjoxNzQxMTczNDYzLCJleHAiOjE3NDEyNTk4NjN9.jVGgtzcsb0-FgfZW23J1JaU99H7d8hATgOmM6NsZS0g",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/borrow/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"borrow",
+						"7"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
